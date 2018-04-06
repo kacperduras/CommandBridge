@@ -1,0 +1,5 @@
+name: '${project.parent.name}'
+author: 'Kacper Duras <contact@kacperduras.pl>'
+website: 'http://kacperduras.pl'
+version: '${project.parent.version}'
+main: 'pl.kacperduras.commandbridge.bungee.CommandBridgeBungee'
