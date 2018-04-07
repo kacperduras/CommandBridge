@@ -7,7 +7,7 @@ import org.diorite.cfg.annotations.defaults.CfgDelegateDefault;
 
 @CfgClass(name = "PluginConfig")
 @CfgDelegateDefault("{new}")
-@CfgComment("CommandBridge v1.0.1-SNAPSHOT by Kacper Duras")
+@CfgComment("CommandBridge v1.0.1 by Kacper Duras")
 public class CommandBridgeConfig {
 
   private Channels channels = new Channels();

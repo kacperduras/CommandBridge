@@ -7,13 +7,13 @@
   <parent>
     <groupId>pl.kacperduras</groupId>
     <artifactId>commandbridge-parent</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
   </parent>
 
   <name>CommandBridge :: Bungee</name>
 
   <artifactId>commandbridge-bungee</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
 
   <repositories>
     <repository>
