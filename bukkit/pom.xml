@@ -7,13 +7,13 @@
   <parent>
     <groupId>pl.kacperduras</groupId>
     <artifactId>commandbridge-parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
   </parent>
 
   <name>CommandBridge :: Bukkit</name>
 
   <artifactId>commandbridge-bukkit</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <repositories>
     <repository>
