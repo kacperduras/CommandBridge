@@ -73,6 +73,12 @@ public final class CommandBridgeBungee extends Plugin implements CommandBridgeAP
       player.sendMessage(ChatColor.RED + "More informations is available in the console.");
 
       ex.printStackTrace();
+    } finally {
+      try {
+        output.close();
+        outputByteArray.close();
+      } catch (IOException ignored) {
+      }
     }
 
     ServerInfo target = this.getProxy().getServerInfo(server);
@@ -113,6 +119,11 @@ public final class CommandBridgeBungee extends Plugin implements CommandBridgeAP
       this.getProxy().getPluginManager().dispatchCommand(target, command);
     } catch (IOException ex) {
       ex.printStackTrace();
+    } finally {
+      try {
+        input.close();
+      } catch (IOException ignored) {
+      }
     }
   }
 

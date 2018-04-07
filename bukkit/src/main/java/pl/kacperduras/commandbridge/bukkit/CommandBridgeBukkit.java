@@ -86,6 +86,12 @@ public final class CommandBridgeBukkit extends JavaPlugin implements CommandBrid
         target.sendMessage(ChatColor.RED + "More informations is available in the console.");
 
         ex.printStackTrace();
+      } finally {
+        try {
+          output.close();
+          outputByteArray.close();
+        } catch (IOException ignored) {
+        }
       }
     }
   }
@@ -113,6 +119,11 @@ public final class CommandBridgeBukkit extends JavaPlugin implements CommandBrid
       player.sendMessage(ChatColor.RED + "More informations is available in the console.");
 
       ex.printStackTrace();
+    } finally {
+      try {
+        input.close();
+      } catch (IOException ignored) {
+      }
     }
   }
 
