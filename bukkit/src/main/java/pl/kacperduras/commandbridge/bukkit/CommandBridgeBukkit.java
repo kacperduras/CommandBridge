@@ -83,7 +83,7 @@ public final class CommandBridgeBukkit extends JavaPlugin implements CommandBrid
         );
       } catch (IOException ex) {
         target.sendMessage(ChatColor.RED + "Fatal error: " + ex.getMessage());
-        target.sendMessage(ChatColor.RED + "More informations is available in the console.");
+        target.sendMessage(ChatColor.RED + "More informations are available in the console.");
 
         ex.printStackTrace();
       } finally {
