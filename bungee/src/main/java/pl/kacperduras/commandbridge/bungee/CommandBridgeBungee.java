@@ -70,7 +70,7 @@ public final class CommandBridgeBungee extends Plugin implements CommandBridgeAP
       output.writeUTF(command);
     } catch (IOException ex) {
       player.sendMessage(ChatColor.RED + "Fatal error: " + ex.getMessage());
-      player.sendMessage(ChatColor.RED + "More informations is available in the console.");
+      player.sendMessage(ChatColor.RED + "More information is available in the console.");
 
       ex.printStackTrace();
     } finally {
