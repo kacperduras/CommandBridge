@@ -1,4 +1,4 @@
-name: '${project.parent.name}'
+name: '${project.artifactId}'
 author: 'Kacper Duras <contact@kacperduras.pl>'
 website: 'http://kacperduras.pl'
 version: '${project.parent.version}'
