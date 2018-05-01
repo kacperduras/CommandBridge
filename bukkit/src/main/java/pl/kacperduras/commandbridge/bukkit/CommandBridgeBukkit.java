@@ -19,9 +19,12 @@ public final class CommandBridgeBukkit extends JavaPlugin implements CommandBrid
     PluginMessageListener {
 
   private CommandBridgeConfig config;
-  
+
   @Override
   public void onEnable() {
+    if (!this.getDataFolder().exists()) {
+      this.getDataFolder().mkdir();
+    }
     this.config = ConfigUtils.loadConfig(
         new File(this.getDataFolder(), "config.yml"), CommandBridgeConfig.class);
 

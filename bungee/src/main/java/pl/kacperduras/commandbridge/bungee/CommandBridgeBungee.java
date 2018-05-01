@@ -24,6 +24,9 @@ public final class CommandBridgeBungee extends Plugin implements CommandBridgeAP
 
   @Override
   public void onEnable() {
+    if (!this.getDataFolder().exists()) {
+      this.getDataFolder().mkdir();
+    }
     this.config = ConfigUtils.loadConfig(
         new File(this.getDataFolder(), "config.yml"), CommandBridgeConfig.class);
 
