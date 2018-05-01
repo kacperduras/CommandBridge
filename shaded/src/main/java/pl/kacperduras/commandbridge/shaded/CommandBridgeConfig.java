@@ -34,6 +34,10 @@ public class CommandBridgeConfig {
       private String name;
       private boolean enabled;
 
+      public Channel() {
+
+      }
+
       public Channel(String name, boolean enabled) {
         Validate.notNull(name);
 
