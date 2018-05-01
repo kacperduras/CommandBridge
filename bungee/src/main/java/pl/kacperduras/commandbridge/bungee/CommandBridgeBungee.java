@@ -23,13 +23,10 @@ public final class CommandBridgeBungee extends Plugin implements CommandBridgeAP
   private CommandBridgeConfig config;
 
   @Override
-  public void onLoad() {
+  public void onEnable() {
     this.config = ConfigUtils.loadConfig(
         new File(this.getDataFolder(), "config.yml"), CommandBridgeConfig.class);
-  }
 
-  @Override
-  public void onEnable() {
     if (this.config.getChannels().getBukkit().isEnabled()) {
       this.getProxy().registerChannel(this.config.getChannels().getBukkit().getName());
     }
