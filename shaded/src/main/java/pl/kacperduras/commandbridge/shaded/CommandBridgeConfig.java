@@ -18,8 +18,8 @@ public class CommandBridgeConfig {
 
   public static class Channels {
 
-    private Channel bukkit = new Channel("CommandBridge-Bukkit", true);
-    private Channel bungeeCord = new Channel("CommandBridge-BungeeCord", true);
+    private Channel bukkit = new Channel("CB-Bukkit", true);
+    private Channel bungeeCord = new Channel("CB-BungeeCord", true);
 
     public Channel getBukkit() {
       return bukkit;
