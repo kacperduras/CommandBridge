@@ -7,6 +7,7 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
 import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.PluginMessageEvent;
@@ -27,6 +28,7 @@ public final class CommandBridgeBungee extends Plugin implements CommandBridgeAP
     if (!this.getDataFolder().exists()) {
       this.getDataFolder().mkdir();
     }
+
     this.config = ConfigUtils.loadConfig(
         new File(this.getDataFolder(), "config.yml"), CommandBridgeConfig.class);
 
@@ -69,8 +71,9 @@ public final class CommandBridgeBungee extends Plugin implements CommandBridgeAP
       output.writeUTF(nickname);
       output.writeUTF(command);
     } catch (IOException ex) {
-      player.sendMessage(ChatColor.RED + "Fatal error: " + ex.getMessage());
-      player.sendMessage(ChatColor.RED + "More information is available in the console.");
+      player.sendMessage(new TextComponent(ChatColor.RED + "Fatal error: " + ex.getMessage()));
+      player.sendMessage(
+          new TextComponent(ChatColor.RED + "More information is available in the console."));
 
       ex.printStackTrace();
     } finally {
@@ -106,8 +109,7 @@ public final class CommandBridgeBungee extends Plugin implements CommandBridgeAP
       return;
     }
 
-    DataInputStream input = new DataInputStream(new ByteArrayInputStream(event.getData()));
-    try {
+    try (DataInputStream input = new DataInputStream(new ByteArrayInputStream(event.getData()))) {
       String nickname = input.readUTF();
       String command = input.readUTF();
 
@@ -119,11 +121,6 @@ public final class CommandBridgeBungee extends Plugin implements CommandBridgeAP
       this.getProxy().getPluginManager().dispatchCommand(target, command);
     } catch (IOException ex) {
       ex.printStackTrace();
-    } finally {
-      try {
-        input.close();
-      } catch (IOException ignored) {
-      }
     }
   }
 
