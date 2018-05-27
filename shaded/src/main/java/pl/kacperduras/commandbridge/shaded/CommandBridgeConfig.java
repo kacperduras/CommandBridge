@@ -18,8 +18,8 @@ public class CommandBridgeConfig {
 
   public static class Channels {
 
-    private Channel bukkit = new Channel("CB-Bukkit", true);
-    private Channel bungeeCord = new Channel("CB-BungeeCord", true);
+    private final Channel bukkit = new Channel("CB-Bukkit", true);
+    private final Channel bungeeCord = new Channel("CB-BungeeCord", true);
 
     public Channel getBukkit() {
       return bukkit;
@@ -31,11 +31,8 @@ public class CommandBridgeConfig {
 
     public static class Channel {
 
-      private String name;
-      private boolean enabled;
-
-      public Channel() {
-      }
+      private final String name;
+      private final boolean enabled;
 
       public Channel(String name, boolean enabled) {
         Validate.notNull(name);

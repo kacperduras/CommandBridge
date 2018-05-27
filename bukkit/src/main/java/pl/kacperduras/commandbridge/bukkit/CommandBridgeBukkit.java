@@ -103,8 +103,7 @@ public final class CommandBridgeBukkit extends JavaPlugin implements CommandBrid
 
   @Override
   public void onPluginMessageReceived(String string, Player player, byte[] bytes) {
-    DataInputStream input = new DataInputStream(new ByteArrayInputStream(bytes));
-    try {
+    try (DataInputStream input = new DataInputStream(new ByteArrayInputStream(bytes))) {
       String nickname = input.readUTF();
       String command = input.readUTF();
 
@@ -119,11 +118,6 @@ public final class CommandBridgeBukkit extends JavaPlugin implements CommandBrid
       player.sendMessage(ChatColor.RED + "More information is available in the console.");
 
       ex.printStackTrace();
-    } finally {
-      try {
-        input.close();
-      } catch (IOException ignored) {
-      }
     }
   }
 

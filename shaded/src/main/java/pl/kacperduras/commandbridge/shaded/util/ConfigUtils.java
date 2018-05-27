@@ -22,13 +22,16 @@ public final class ConfigUtils {
         try {
           config = template.fillDefaults(implementationFile.newInstance());
         } catch (InstantiationException | IllegalAccessException e) {
-          throw new RuntimeException("Couldn't get access to " + implementationFile.getName() + "  constructor", e);
+          throw new RuntimeException(
+              "Couldn't get access to " + implementationFile.getName() + "  constructor", e);
         }
 
-        Validate.isTrue(file.createNewFile(), "Couldn't create " + file.getAbsolutePath() + " config file");
+        Validate.isTrue(file.createNewFile(),
+            "Couldn't create " + file.getAbsolutePath() + " config file");
 
       } catch (IOException e) {
-        throw new RuntimeException("IO exception when creating config file: " + file.getAbsolutePath(), e);
+        throw new RuntimeException(
+            "IO exception when creating config file: " + file.getAbsolutePath(), e);
       }
     } else {
       try {
@@ -38,10 +41,12 @@ public final class ConfigUtils {
             config = template.fillDefaults(implementationFile.newInstance());
           }
         } catch (IOException e) {
-          throw new RuntimeException("IO exception when loading config file: " + file.getAbsolutePath(), e);
+          throw new RuntimeException(
+              "IO exception when loading config file: " + file.getAbsolutePath(), e);
         }
       } catch (InstantiationException | IllegalAccessException e) {
-        throw new RuntimeException("Couldn't get access to " + implementationFile.getName() + "  constructor", e);
+        throw new RuntimeException(
+            "Couldn't get access to " + implementationFile.getName() + "  constructor", e);
       }
     }
 
